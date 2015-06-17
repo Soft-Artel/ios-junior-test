@@ -7,14 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CameraViewController.h"
-#import "LibraryViewController.h"
 
-@interface GetImageViewController : UIViewController
+@interface GetImageVC : UIViewController
 
 @property (strong, nonatomic) IBOutlet UIView *cameraView;
 @property (strong, nonatomic) IBOutlet UIView *libraryView;
-@property CameraViewController *camera;
-@property LibraryViewController *library;
+@property (strong, nonatomic) IBOutlet UIButton *captureImageButton;
+@property (strong, nonatomic) IBOutlet UIButton *changeCameraButton;
 
 @end

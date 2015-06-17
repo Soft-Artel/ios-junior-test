@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "GetImageViewController.h"
+#import "GetImageVC.h"
 
 @interface ViewController ()
 
@@ -27,7 +27,7 @@
 
 - (IBAction)buttonPressed:(id)sender
 {
-    GetImageViewController *getImageVC = [[GetImageViewController alloc] initWithNibName:@"GetImageViewController" bundle:nil];
+    GetImageVC *getImageVC = [[GetImageVC alloc] initWithNibName:@"GetImageVC" bundle:nil];
     [self.navigationController pushViewController:getImageVC animated:YES];
 }
 

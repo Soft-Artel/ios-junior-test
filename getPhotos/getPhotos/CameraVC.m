@@ -6,15 +6,23 @@
 //  Copyright (c) 2015 test. All rights reserved.
 //
 
-#import "CameraViewController.h"
+#import "CameraVC.h"
+#import <AVFoundation/AVFoundation.h>
 
-@interface CameraViewController ()
+@interface CameraVC ()
 
 @end
 
-@implementation CameraViewController
+@implementation CameraVC
+{
+    AVCaptureSession *session;
+    AVCaptureDevice *camera;
+    AVCaptureDeviceInput *input;
+    AVCaptureStillImageOutput *stillImageOutput;
+    UIImage *lastPhoto;
+}
 
-@synthesize captureImage, imagePreview, stillImageOutput;
+@synthesize captureImage, imagePreview;
 
 - (void)viewDidLoad
 {
@@ -24,7 +32,7 @@
 
 - (void)initCamera
 {
-    AVCaptureSession *session = [AVCaptureSession new];
+    session = [AVCaptureSession new];
     session.sessionPreset = AVCaptureSessionPresetPhoto;
     AVCaptureVideoPreviewLayer *captureVideoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:session];
     [captureVideoPreviewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
@@ -37,21 +45,35 @@
     CGRect bounds = [self.imagePreview bounds];
     [captureVideoPreviewLayer setFrame:bounds];
     
-    NSArray *devices = [AVCaptureDevice devices];
-    AVCaptureDevice *backCamera;
-    for (AVCaptureDevice *device in devices) {
-        if ([device hasMediaType:AVMediaTypeVideo]) {
-            backCamera = device;
-        }
-    }
-    NSError *error = nil;
-    AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:backCamera error:&error];
+    camera = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    input = [AVCaptureDeviceInput deviceInputWithDevice:camera error:nil];
     [session addInput:input];
-    stillImageOutput = [[AVCaptureStillImageOutput alloc] init];
+    stillImageOutput = [AVCaptureStillImageOutput new];
     NSDictionary *outputSettings = [[NSDictionary alloc] initWithObjectsAndKeys:AVVideoCodecJPEG, AVVideoCodecKey, nil];
     [stillImageOutput setOutputSettings:outputSettings];
     [session addOutput:stillImageOutput];
     [session startRunning];
+}
+
+- (void)changeCamera
+{
+    AVCaptureDevicePosition reversePosition;
+    if ([input.device position] == AVCaptureDevicePositionFront) {
+        reversePosition = AVCaptureDevicePositionBack;
+    } else {
+        reversePosition = AVCaptureDevicePositionFront;
+    }
+    NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
+    AVCaptureDevice *reverseDevice = nil;
+    for (AVCaptureDevice *device in devices) {
+        if ([device position] == reversePosition) {
+            reverseDevice = device;
+            break;
+        }
+    }
+    [session removeInput:input];
+    input = [AVCaptureDeviceInput deviceInputWithDevice:reverseDevice error:nil];
+    [session addInput:input];
 }
 
 - (void)snapImage
@@ -85,12 +107,18 @@
         UIGraphicsEndImageContext();
         CGRect cropRect = CGRectMake(0, 0, image.size.width, image.size.width);
         CGImageRef imageRef = CGImageCreateWithImageInRect([smallImage CGImage], cropRect);
-        [self.captureImage setImage:
-         [UIImage imageWithCGImage:imageRef]];
+        lastPhoto = [UIImage imageWithCGImage:imageRef];
+        [self.captureImage setImage:lastPhoto];
+        [self saveImage];
         CGImageRelease(imageRef);
         self.captureImage.hidden = NO;
         self.imagePreview.hidden = YES;
     }
+}
+
+- (void)saveImage
+{
+    UIImageWriteToSavedPhotosAlbum(lastPhoto, nil, nil, nil);
 }
 
 - (void)newPhoto

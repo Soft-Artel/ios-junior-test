@@ -7,15 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <AVFoundation/AVFoundation.h>
 
-@interface CameraViewController : UIViewController
+@interface CameraVC : UIViewController
 
-@property(nonatomic, retain) AVCaptureStillImageOutput *stillImageOutput;
 @property (strong, nonatomic) IBOutlet UIView *imagePreview;
 @property (strong, nonatomic) IBOutlet UIImageView *captureImage;
 
 - (void)snapImage;
 - (void)newPhoto;
+- (void)changeCamera;
 
 @end

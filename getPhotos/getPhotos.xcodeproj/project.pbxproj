@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D33EAEF1B31DC3F005912CB /* LibraryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D33EAEE1B31DC3F005912CB /* LibraryCollectionViewCell.m */; };
+		4D33EAF21B31DFDA005912CB /* TWPhotoLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D33EAF11B31DFDA005912CB /* TWPhotoLoader.m */; };
+		4D33EAF51B31E19D005912CB /* TWPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D33EAF41B31E19D005912CB /* TWPhoto.m */; };
 		4D7FF4EE1B30855A000AF4F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7FF4ED1B30855A000AF4F5 /* Foundation.framework */; };
 		4D7FF4F01B30855A000AF4F5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7FF4EF1B30855A000AF4F5 /* CoreGraphics.framework */; };
 		4D7FF4F21B30855A000AF4F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7FF4F11B30855A000AF4F5 /* UIKit.framework */; };
@@ -22,12 +25,12 @@
 		4D7FF5121B30855A000AF4F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7FF4F11B30855A000AF4F5 /* UIKit.framework */; };
 		4D7FF51A1B30855A000AF4F5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D7FF5181B30855A000AF4F5 /* InfoPlist.strings */; };
 		4D7FF51C1B30855A000AF4F5 /* getPhotosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FF51B1B30855A000AF4F5 /* getPhotosTests.m */; };
-		4D7FF52B1B30862C000AF4F5 /* GetImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FF5291B30862C000AF4F5 /* GetImageViewController.m */; };
-		4D7FF52C1B30862C000AF4F5 /* GetImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D7FF52A1B30862C000AF4F5 /* GetImageViewController.xib */; };
-		4D7FF5301B308682000AF4F5 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FF52E1B308682000AF4F5 /* CameraViewController.m */; };
-		4D7FF5311B308682000AF4F5 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D7FF52F1B308682000AF4F5 /* CameraViewController.xib */; };
-		4D7FF5351B3086D7000AF4F5 /* LibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FF5331B3086D7000AF4F5 /* LibraryViewController.m */; };
-		4D7FF5361B3086D7000AF4F5 /* LibraryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D7FF5341B3086D7000AF4F5 /* LibraryViewController.xib */; };
+		4D7FF52B1B30862C000AF4F5 /* GetImageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FF5291B30862C000AF4F5 /* GetImageVC.m */; };
+		4D7FF52C1B30862C000AF4F5 /* GetImageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D7FF52A1B30862C000AF4F5 /* GetImageVC.xib */; };
+		4D7FF5301B308682000AF4F5 /* CameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7FF52E1B308682000AF4F5 /* CameraVC.m */; };
+		4D7FF5311B308682000AF4F5 /* CameraVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D7FF52F1B308682000AF4F5 /* CameraVC.xib */; };
+		4DA422521B318D9400247DE0 /* LibraryCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA422501B318D9400247DE0 /* LibraryCollectionVC.m */; };
+		4DA422531B318D9400247DE0 /* LibraryCollectionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DA422511B318D9400247DE0 /* LibraryCollectionVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +44,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D33EAED1B31DC3F005912CB /* LibraryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryCollectionViewCell.h; sourceTree = "<group>"; };
+		4D33EAEE1B31DC3F005912CB /* LibraryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryCollectionViewCell.m; sourceTree = "<group>"; };
+		4D33EAF01B31DFDA005912CB /* TWPhotoLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWPhotoLoader.h; sourceTree = "<group>"; };
+		4D33EAF11B31DFDA005912CB /* TWPhotoLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWPhotoLoader.m; sourceTree = "<group>"; };
+		4D33EAF31B31E19D005912CB /* TWPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWPhoto.h; sourceTree = "<group>"; };
+		4D33EAF41B31E19D005912CB /* TWPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWPhoto.m; sourceTree = "<group>"; };
 		4D7FF4EA1B30855A000AF4F5 /* getPhotos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = getPhotos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7FF4ED1B30855A000AF4F5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4D7FF4EF1B30855A000AF4F5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -61,15 +70,15 @@
 		4D7FF5171B30855A000AF4F5 /* getPhotosTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "getPhotosTests-Info.plist"; sourceTree = "<group>"; };
 		4D7FF5191B30855A000AF4F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4D7FF51B1B30855A000AF4F5 /* getPhotosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = getPhotosTests.m; sourceTree = "<group>"; };
-		4D7FF5281B30862C000AF4F5 /* GetImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetImageViewController.h; sourceTree = "<group>"; };
-		4D7FF5291B30862C000AF4F5 /* GetImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetImageViewController.m; sourceTree = "<group>"; };
-		4D7FF52A1B30862C000AF4F5 /* GetImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GetImageViewController.xib; sourceTree = "<group>"; };
-		4D7FF52D1B308682000AF4F5 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
-		4D7FF52E1B308682000AF4F5 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
-		4D7FF52F1B308682000AF4F5 /* CameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
-		4D7FF5321B3086D7000AF4F5 /* LibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryViewController.h; sourceTree = "<group>"; };
-		4D7FF5331B3086D7000AF4F5 /* LibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryViewController.m; sourceTree = "<group>"; };
-		4D7FF5341B3086D7000AF4F5 /* LibraryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LibraryViewController.xib; sourceTree = "<group>"; };
+		4D7FF5281B30862C000AF4F5 /* GetImageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetImageVC.h; sourceTree = "<group>"; };
+		4D7FF5291B30862C000AF4F5 /* GetImageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetImageVC.m; sourceTree = "<group>"; };
+		4D7FF52A1B30862C000AF4F5 /* GetImageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GetImageVC.xib; sourceTree = "<group>"; };
+		4D7FF52D1B308682000AF4F5 /* CameraVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraVC.h; sourceTree = "<group>"; };
+		4D7FF52E1B308682000AF4F5 /* CameraVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraVC.m; sourceTree = "<group>"; };
+		4D7FF52F1B308682000AF4F5 /* CameraVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraVC.xib; sourceTree = "<group>"; };
+		4DA4224F1B318D9400247DE0 /* LibraryCollectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryCollectionVC.h; sourceTree = "<group>"; };
+		4DA422501B318D9400247DE0 /* LibraryCollectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryCollectionVC.m; sourceTree = "<group>"; };
+		4DA422511B318D9400247DE0 /* LibraryCollectionVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LibraryCollectionVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,9 +185,9 @@
 		4D7FF5251B3085D2000AF4F5 /* GetImage */ = {
 			isa = PBXGroup;
 			children = (
-				4D7FF5281B30862C000AF4F5 /* GetImageViewController.h */,
-				4D7FF5291B30862C000AF4F5 /* GetImageViewController.m */,
-				4D7FF52A1B30862C000AF4F5 /* GetImageViewController.xib */,
+				4D7FF5281B30862C000AF4F5 /* GetImageVC.h */,
+				4D7FF5291B30862C000AF4F5 /* GetImageVC.m */,
+				4D7FF52A1B30862C000AF4F5 /* GetImageVC.xib */,
 			);
 			name = GetImage;
 			sourceTree = "<group>";
@@ -186,9 +195,9 @@
 		4D7FF5261B3085E1000AF4F5 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
-				4D7FF52D1B308682000AF4F5 /* CameraViewController.h */,
-				4D7FF52E1B308682000AF4F5 /* CameraViewController.m */,
-				4D7FF52F1B308682000AF4F5 /* CameraViewController.xib */,
+				4D7FF52D1B308682000AF4F5 /* CameraVC.h */,
+				4D7FF52E1B308682000AF4F5 /* CameraVC.m */,
+				4D7FF52F1B308682000AF4F5 /* CameraVC.xib */,
 			);
 			name = Camera;
 			sourceTree = "<group>";
@@ -196,9 +205,15 @@
 		4D7FF5271B3085F1000AF4F5 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				4D7FF5321B3086D7000AF4F5 /* LibraryViewController.h */,
-				4D7FF5331B3086D7000AF4F5 /* LibraryViewController.m */,
-				4D7FF5341B3086D7000AF4F5 /* LibraryViewController.xib */,
+				4D33EAF31B31E19D005912CB /* TWPhoto.h */,
+				4D33EAF41B31E19D005912CB /* TWPhoto.m */,
+				4D33EAF01B31DFDA005912CB /* TWPhotoLoader.h */,
+				4D33EAF11B31DFDA005912CB /* TWPhotoLoader.m */,
+				4DA4224F1B318D9400247DE0 /* LibraryCollectionVC.h */,
+				4DA422501B318D9400247DE0 /* LibraryCollectionVC.m */,
+				4DA422511B318D9400247DE0 /* LibraryCollectionVC.xib */,
+				4D33EAED1B31DC3F005912CB /* LibraryCollectionViewCell.h */,
+				4D33EAEE1B31DC3F005912CB /* LibraryCollectionViewCell.m */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -281,9 +296,9 @@
 			files = (
 				4D7FF5041B30855A000AF4F5 /* Main_iPad.storyboard in Resources */,
 				4D7FF5091B30855A000AF4F5 /* Images.xcassets in Resources */,
-				4D7FF52C1B30862C000AF4F5 /* GetImageViewController.xib in Resources */,
-				4D7FF5361B3086D7000AF4F5 /* LibraryViewController.xib in Resources */,
-				4D7FF5311B308682000AF4F5 /* CameraViewController.xib in Resources */,
+				4D7FF52C1B30862C000AF4F5 /* GetImageVC.xib in Resources */,
+				4DA422531B318D9400247DE0 /* LibraryCollectionVC.xib in Resources */,
+				4D7FF5311B308682000AF4F5 /* CameraVC.xib in Resources */,
 				4D7FF5011B30855A000AF4F5 /* Main_iPhone.storyboard in Resources */,
 				4D7FF4F81B30855A000AF4F5 /* InfoPlist.strings in Resources */,
 			);
@@ -304,11 +319,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D7FF5351B3086D7000AF4F5 /* LibraryViewController.m in Sources */,
-				4D7FF5301B308682000AF4F5 /* CameraViewController.m in Sources */,
+				4D7FF5301B308682000AF4F5 /* CameraVC.m in Sources */,
 				4D7FF5071B30855A000AF4F5 /* ViewController.m in Sources */,
-				4D7FF52B1B30862C000AF4F5 /* GetImageViewController.m in Sources */,
+				4D7FF52B1B30862C000AF4F5 /* GetImageVC.m in Sources */,
+				4D33EAEF1B31DC3F005912CB /* LibraryCollectionViewCell.m in Sources */,
+				4D33EAF51B31E19D005912CB /* TWPhoto.m in Sources */,
 				4D7FF4FE1B30855A000AF4F5 /* AppDelegate.m in Sources */,
+				4DA422521B318D9400247DE0 /* LibraryCollectionVC.m in Sources */,
+				4D33EAF21B31DFDA005912CB /* TWPhotoLoader.m in Sources */,
 				4D7FF4FA1B30855A000AF4F5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,7 +465,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "getPhotos/getPhotos-Prefix.pch";
 				INFOPLIST_FILE = "getPhotos/getPhotos-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -460,7 +480,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "getPhotos/getPhotos-Prefix.pch";
 				INFOPLIST_FILE = "getPhotos/getPhotos-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -524,6 +546,7 @@
 				4D7FF5211B30855A000AF4F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4D7FF5221B30855A000AF4F5 /* Build configuration list for PBXNativeTarget "getPhotosTests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +555,7 @@
 				4D7FF5241B30855A000AF4F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -6,23 +6,26 @@
 //  Copyright (c) 2015 test. All rights reserved.
 //
 
-#import "GetImageViewController.h"
-#import "CameraViewController.h"
-#import "LibraryViewController.h"
+#import "GetImageVC.h"
+#import "CameraVC.h"
+#import "LibraryCollectionVC.h"
 
-@interface GetImageViewController ()
+@interface GetImageVC ()
+{
+    CameraVC *camera;
+    LibraryCollectionVC *library;
+}
 
 @end
 
-@implementation GetImageViewController
+@implementation GetImageVC
 
-@synthesize libraryView, cameraView, camera, library;
+@synthesize cameraView, libraryView, captureImageButton, changeCameraButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -30,27 +33,33 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    camera = [[CameraViewController alloc] initWithNibName:@"CameraViewController" bundle:nil];
-    library = [[LibraryViewController alloc] initWithNibName:@"LibraryViewController" bundle:nil];
+    camera = [[CameraVC alloc] initWithNibName:@"CameraVC" bundle:nil];
     [cameraView addSubview:camera.view];
-    [libraryView addSubview:library.view];
+    library = [[LibraryCollectionVC alloc] initWithNibName:@"LibraryCollectionVC" bundle:nil];
+    [libraryView addSubview:library.collectionView];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)captureImage:(id)sender
 {
+    captureImageButton.enabled = changeCameraButton.enabled = NO;
     [camera snapImage];
-    double delayInSeconds = 3.0;
+    double delayInSeconds = 2.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         [camera newPhoto];
+        captureImageButton.enabled = changeCameraButton.enabled = YES;
     });
+    //[library.collectionView reloadData];
+}
+
+- (IBAction)changeCamera:(id)sender
+{
+    [camera changeCamera];
 }
 
 @end
