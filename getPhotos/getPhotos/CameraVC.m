@@ -8,6 +8,7 @@
 
 #import "CameraVC.h"
 #import <AVFoundation/AVFoundation.h>
+#import "SelectedImages.h"
 
 @interface CameraVC ()
 
@@ -119,6 +120,11 @@
 - (void)saveImage
 {
     UIImageWriteToSavedPhotosAlbum(lastPhoto, nil, nil, nil);
+    SelectedImages *images = [SelectedImages instanceType];
+    [images.selectedImages addObject:lastPhoto];
+    if ([images.selectedImages count] == 3) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"3 photo ready" object:nil];
+    }
 }
 
 - (void)newPhoto

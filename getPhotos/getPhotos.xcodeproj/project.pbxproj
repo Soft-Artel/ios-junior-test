@@ -10,6 +10,7 @@
 		4D33EAEF1B31DC3F005912CB /* LibraryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D33EAEE1B31DC3F005912CB /* LibraryCollectionViewCell.m */; };
 		4D33EAF21B31DFDA005912CB /* TWPhotoLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D33EAF11B31DFDA005912CB /* TWPhotoLoader.m */; };
 		4D33EAF51B31E19D005912CB /* TWPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D33EAF41B31E19D005912CB /* TWPhoto.m */; };
+		4D33EAFC1B32F10C005912CB /* SelectedImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D33EAFB1B32F10C005912CB /* SelectedImages.m */; };
 		4D7FF4EE1B30855A000AF4F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7FF4ED1B30855A000AF4F5 /* Foundation.framework */; };
 		4D7FF4F01B30855A000AF4F5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7FF4EF1B30855A000AF4F5 /* CoreGraphics.framework */; };
 		4D7FF4F21B30855A000AF4F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7FF4F11B30855A000AF4F5 /* UIKit.framework */; };
@@ -50,6 +51,8 @@
 		4D33EAF11B31DFDA005912CB /* TWPhotoLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWPhotoLoader.m; sourceTree = "<group>"; };
 		4D33EAF31B31E19D005912CB /* TWPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWPhoto.h; sourceTree = "<group>"; };
 		4D33EAF41B31E19D005912CB /* TWPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWPhoto.m; sourceTree = "<group>"; };
+		4D33EAFA1B32F10C005912CB /* SelectedImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedImages.h; sourceTree = "<group>"; };
+		4D33EAFB1B32F10C005912CB /* SelectedImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedImages.m; sourceTree = "<group>"; };
 		4D7FF4EA1B30855A000AF4F5 /* getPhotos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = getPhotos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7FF4ED1B30855A000AF4F5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4D7FF4EF1B30855A000AF4F5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -105,6 +108,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D33EAF91B32F0D8005912CB /* SelectedImages */ = {
+			isa = PBXGroup;
+			children = (
+				4D33EAFA1B32F10C005912CB /* SelectedImages.h */,
+				4D33EAFB1B32F10C005912CB /* SelectedImages.m */,
+			);
+			name = SelectedImages;
+			sourceTree = "<group>";
+		};
 		4D7FF4E11B30855A000AF4F5 = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +150,7 @@
 		4D7FF4F31B30855A000AF4F5 /* getPhotos */ = {
 			isa = PBXGroup;
 			children = (
+				4D33EAF91B32F0D8005912CB /* SelectedImages */,
 				4D7FF5271B3085F1000AF4F5 /* Library */,
 				4D7FF5261B3085E1000AF4F5 /* Camera */,
 				4D7FF5251B3085D2000AF4F5 /* GetImage */,
@@ -325,6 +338,7 @@
 				4D33EAEF1B31DC3F005912CB /* LibraryCollectionViewCell.m in Sources */,
 				4D33EAF51B31E19D005912CB /* TWPhoto.m in Sources */,
 				4D7FF4FE1B30855A000AF4F5 /* AppDelegate.m in Sources */,
+				4D33EAFC1B32F10C005912CB /* SelectedImages.m in Sources */,
 				4DA422521B318D9400247DE0 /* LibraryCollectionVC.m in Sources */,
 				4D33EAF21B31DFDA005912CB /* TWPhotoLoader.m in Sources */,
 				4D7FF4FA1B30855A000AF4F5 /* main.m in Sources */,

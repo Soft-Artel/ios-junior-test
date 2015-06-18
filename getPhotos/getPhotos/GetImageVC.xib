@@ -19,16 +19,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uSb-dr-V2e">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="340"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eCy-VB-D9b">
+                    <rect key="frame" x="0.0" y="340" width="320" height="20"/>
+                    <color key="backgroundColor" red="1" green="0.80533500359999999" blue="0.48695916379999998" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wTc-uE-ziW">
-                    <rect key="frame" x="0.0" y="400" width="320" height="168"/>
+                    <rect key="frame" x="0.0" y="360" width="320" height="147"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q6P-qE-WwT">
-                    <rect key="frame" x="137" y="350" width="50" height="30"/>
-                    <state key="normal" title="Button">
+                    <rect key="frame" x="124" y="526" width="82" height="30"/>
+                    <state key="normal" title="Take photo">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -36,8 +40,8 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NtT-mM-5yi">
-                    <rect key="frame" x="250" y="350" width="50" height="30"/>
-                    <state key="normal" title="Button">
+                    <rect key="frame" x="252" y="526" width="60" height="30"/>
+                    <state key="normal" title="Change">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>

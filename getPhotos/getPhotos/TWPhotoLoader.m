@@ -14,8 +14,6 @@
 @property (readwrite, copy, nonatomic) void(^loadBlock)(NSArray *photos, NSError *error);
 @end
 
-
-
 @implementation TWPhotoLoader
 
 + (TWPhotoLoader *)sharedLoader {

@@ -10,4 +10,6 @@
 
 @interface LibraryCollectionVC : UICollectionViewController
 
+- (void)changeFrame:(CGRect)frame;
+
 @end

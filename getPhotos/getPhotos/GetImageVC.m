@@ -36,7 +36,12 @@
     camera = [[CameraVC alloc] initWithNibName:@"CameraVC" bundle:nil];
     [cameraView addSubview:camera.view];
     library = [[LibraryCollectionVC alloc] initWithNibName:@"LibraryCollectionVC" bundle:nil];
+    [library changeFrame:libraryView.frame];
     [libraryView addSubview:library.collectionView];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(return)
+                                                 name:@"3 photo ready"
+                                               object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,12 +59,17 @@
         [camera newPhoto];
         captureImageButton.enabled = changeCameraButton.enabled = YES;
     });
-    //[library.collectionView reloadData];
 }
 
 - (IBAction)changeCamera:(id)sender
 {
     [camera changeCamera];
+}
+
+- (void)return
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Return" object:nil];
 }
 
 @end

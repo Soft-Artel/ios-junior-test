@@ -15,7 +15,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5jP-ht-QyZ">
-                <size key="itemSize" width="60" height="103"/>
+                <size key="itemSize" width="60" height="127"/>
                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
