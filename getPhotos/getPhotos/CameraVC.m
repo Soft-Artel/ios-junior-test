@@ -120,7 +120,7 @@
 - (void)saveImage
 {
     UIImageWriteToSavedPhotosAlbum(lastPhoto, nil, nil, nil);
-    SelectedImages *images = [SelectedImages instanceType];
+    SelectedImages *images = [SelectedImages sharedInstance];
     [images.selectedImages addObject:lastPhoto];
     if ([images.selectedImages count] == 3) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"3 photo ready" object:nil];
@@ -131,6 +131,11 @@
 {
     imagePreview.hidden = NO;
     captureImage.hidden = YES;
+}
+
+- (void)changeFrame:(CGRect)frame
+{
+    self.view.frame = frame;
 }
 
 @end

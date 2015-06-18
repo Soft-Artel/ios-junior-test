@@ -10,8 +10,8 @@
 
 @interface SelectedImages : NSObject
 
-+ (id)instanceType;
-
 @property (strong, nonatomic) NSMutableArray *selectedImages;
+
++ (SelectedImages *)sharedInstance;
 
 @end

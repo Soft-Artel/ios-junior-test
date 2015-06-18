@@ -13,5 +13,4 @@
 
 + (void)loadAllPhotos:(void (^)(NSArray *photos, NSError *error))completion;
 
-
 @end

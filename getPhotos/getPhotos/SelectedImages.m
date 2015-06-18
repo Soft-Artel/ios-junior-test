@@ -12,8 +12,9 @@
 
 @synthesize selectedImages;
 
-+ (id)instanceType {
-    static id loader;
++ (SelectedImages *)sharedInstance
+{
+    static SelectedImages *loader;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         loader = [[SelectedImages alloc] init];
@@ -21,7 +22,7 @@
     return loader;
 }
 
-- (instancetype)init
+- (id)init
 {
     self.selectedImages = [NSMutableArray new];
     return self;

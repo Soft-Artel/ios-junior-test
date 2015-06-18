@@ -16,5 +16,6 @@
 - (void)snapImage;
 - (void)newPhoto;
 - (void)changeCamera;
+- (void)changeFrame:(CGRect)frame;
 
 @end

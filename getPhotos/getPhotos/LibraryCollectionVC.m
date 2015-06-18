@@ -20,36 +20,36 @@
 
 @implementation LibraryCollectionVC
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     [self loadPhotos];
-    CGFloat colum = 4.0, spacing = 2.0;
-    CGFloat value = floorf((CGRectGetWidth(self.view.bounds) - (colum - 1) * spacing) / colum);
     UICollectionViewFlowLayout *layout  = [[UICollectionViewFlowLayout alloc] init];
-    layout.itemSize                     = CGSizeMake(value, value);
-    layout.sectionInset                 = UIEdgeInsetsMake(0, 0, 0, 0);
-    layout.minimumInteritemSpacing      = 2;
-    layout.minimumLineSpacing           = 2;
+    layout.itemSize                     = CGSizeMake(100, 100);
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     self.collectionView.collectionViewLayout = layout;
+
     [self.collectionView registerClass:[LibraryCollectionViewCell class] forCellWithReuseIdentifier:@"TWPhotoCollectionViewCell"];
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
     return [self.allPhotos count];
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
     static NSString *CellIdentifier = @"TWPhotoCollectionViewCell";
-    LibraryCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+    LibraryCollectionViewCell *libraryCell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
     TWPhoto *photo = [self.allPhotos objectAtIndex:indexPath.row];
-    cell.imageView.image = photo.thumbnailImage;
-    return cell;
+    libraryCell.imageView.image = photo.thumbnailImage;
+    return libraryCell;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
     TWPhoto *photo = [self.allPhotos objectAtIndex:indexPath.row];
-    SelectedImages *images = [SelectedImages instanceType];
+    SelectedImages *images = [SelectedImages sharedInstance];
     [images.selectedImages addObject:photo.originalImage];
     if ([images.selectedImages count] == 3) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"3 photo ready" object:nil];
@@ -61,7 +61,6 @@
     [TWPhotoLoader loadAllPhotos:^(NSArray *photos, NSError *error) {
         if (!error) {
             self.allPhotos = [NSArray arrayWithArray:photos];
-            NSLog(@"%i",[photos count]);
             [self.collectionView reloadData];
         } else {
             NSLog(@"Load Photos Error: %@", error);

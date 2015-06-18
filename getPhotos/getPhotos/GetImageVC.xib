@@ -9,6 +9,7 @@
                 <outlet property="cameraView" destination="uSb-dr-V2e" id="fUO-4K-7w7"/>
                 <outlet property="captureImageButton" destination="Q6P-qE-WwT" id="2i3-JJ-uQM"/>
                 <outlet property="changeCameraButton" destination="NtT-mM-5yi" id="bD5-sO-fHb"/>
+                <outlet property="gestureView" destination="eCy-VB-D9b" id="nFa-no-dtv"/>
                 <outlet property="libraryView" destination="wTc-uE-ziW" id="g4T-dP-fsY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -19,16 +20,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uSb-dr-V2e">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="340"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="500"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wTc-uE-ziW">
+                    <rect key="frame" x="0.0" y="400" width="320" height="120"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eCy-VB-D9b">
-                    <rect key="frame" x="0.0" y="340" width="320" height="20"/>
+                    <rect key="frame" x="0.0" y="380" width="320" height="20"/>
                     <color key="backgroundColor" red="1" green="0.80533500359999999" blue="0.48695916379999998" alpha="1" colorSpace="calibratedRGB"/>
-                </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wTc-uE-ziW">
-                    <rect key="frame" x="0.0" y="360" width="320" height="147"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q6P-qE-WwT">
                     <rect key="frame" x="124" y="526" width="82" height="30"/>

@@ -28,7 +28,6 @@
                                              selector:@selector(setImages)
                                                  name:@"Return"
                                                object:nil];
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,11 +43,11 @@
 
 - (void)setImages
 {
-    SelectedImages *images = [SelectedImages instanceType];
+    SelectedImages *images = [SelectedImages sharedInstance];
     self.imageView1.image = [images.selectedImages objectAtIndex:0];
     self.imageView2.image = [images.selectedImages objectAtIndex:1];
     self.imageView3.image = [images.selectedImages objectAtIndex:2];
-    self.startButton.hidden = YES;
+    images.selectedImages = [NSMutableArray new];
 }
 
 @end

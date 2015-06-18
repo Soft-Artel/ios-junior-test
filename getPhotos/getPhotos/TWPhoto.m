@@ -10,11 +10,13 @@
 
 @implementation TWPhoto
 
-- (UIImage *)thumbnailImage {
+- (UIImage *)thumbnailImage
+{
     return [UIImage imageWithCGImage:self.asset.thumbnail];
 }
 
-- (UIImage *)originalImage {
+- (UIImage *)originalImage
+{
     return [UIImage imageWithCGImage:self.asset.defaultRepresentation.fullResolutionImage
                                scale:self.asset.defaultRepresentation.scale
                          orientation:(UIImageOrientation)self.asset.defaultRepresentation.orientation];
