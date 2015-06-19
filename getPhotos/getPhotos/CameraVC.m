@@ -120,6 +120,9 @@
 - (void)saveImage
 {
     UIImageWriteToSavedPhotosAlbum(lastPhoto, nil, nil, nil);
+    
+    #warning метод копирует метод из галереи - его лучше перенести в модель
+    
     SelectedImages *images = [SelectedImages sharedInstance];
     [images.selectedImages addObject:lastPhoto];
     if ([images.selectedImages count] == 3) {

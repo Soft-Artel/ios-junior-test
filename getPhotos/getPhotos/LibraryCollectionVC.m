@@ -49,6 +49,8 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     TWPhoto *photo = [self.allPhotos objectAtIndex:indexPath.row];
+    
+#warning метод копирует метод из камеры - его лучше перенести в модель
     SelectedImages *images = [SelectedImages sharedInstance];
     [images.selectedImages addObject:photo.originalImage];
     if ([images.selectedImages count] == 3) {
