@@ -33,7 +33,7 @@
                     <gestureRecognizers/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q6P-qE-WwT">
-                    <rect key="frame" x="124" y="526" width="82" height="30"/>
+                    <rect key="frame" x="119" y="526" width="82" height="30"/>
                     <state key="normal" title="Take photo">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -48,6 +48,15 @@
                     </state>
                     <connections>
                         <action selector="changeCamera:" destination="-1" eventType="touchUpInside" id="hOM-1p-BSE"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nH5-bo-K6N">
+                    <rect key="frame" x="8" y="526" width="60" height="30"/>
+                    <state key="normal" title="Images">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="watchSelectedImages:" destination="-1" eventType="touchUpInside" id="x2H-x9-1Mr"/>
                     </connections>
                 </button>
             </subviews>

@@ -13,5 +13,6 @@
 @property (strong, nonatomic) NSMutableArray *selectedImages;
 
 + (SelectedImages *)sharedInstance;
+- (void)saveImage:(UIImage *)image;
 
 @end

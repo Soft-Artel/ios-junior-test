@@ -11,6 +11,9 @@
 		4D33EAF21B31DFDA005912CB /* TWPhotoLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D33EAF11B31DFDA005912CB /* TWPhotoLoader.m */; };
 		4D33EAF51B31E19D005912CB /* TWPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D33EAF41B31E19D005912CB /* TWPhoto.m */; };
 		4D33EAFC1B32F10C005912CB /* SelectedImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D33EAFB1B32F10C005912CB /* SelectedImages.m */; };
+		4D33EB041B341AEA005912CB /* SelectedImagesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D33EB031B341AEA005912CB /* SelectedImagesCell.m */; };
+		4D33EB071B341E68005912CB /* SelectedImagesCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D33EB061B341E68005912CB /* SelectedImagesCollectionVC.m */; };
+		4D33EB0A1B342614005912CB /* ImageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D33EB091B342614005912CB /* ImageVC.m */; };
 		4D7FF4EE1B30855A000AF4F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7FF4ED1B30855A000AF4F5 /* Foundation.framework */; };
 		4D7FF4F01B30855A000AF4F5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7FF4EF1B30855A000AF4F5 /* CoreGraphics.framework */; };
 		4D7FF4F21B30855A000AF4F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7FF4F11B30855A000AF4F5 /* UIKit.framework */; };
@@ -53,6 +56,12 @@
 		4D33EAF41B31E19D005912CB /* TWPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWPhoto.m; sourceTree = "<group>"; };
 		4D33EAFA1B32F10C005912CB /* SelectedImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedImages.h; sourceTree = "<group>"; };
 		4D33EAFB1B32F10C005912CB /* SelectedImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedImages.m; sourceTree = "<group>"; };
+		4D33EB021B341AEA005912CB /* SelectedImagesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedImagesCell.h; sourceTree = "<group>"; };
+		4D33EB031B341AEA005912CB /* SelectedImagesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedImagesCell.m; sourceTree = "<group>"; };
+		4D33EB051B341E68005912CB /* SelectedImagesCollectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedImagesCollectionVC.h; sourceTree = "<group>"; };
+		4D33EB061B341E68005912CB /* SelectedImagesCollectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedImagesCollectionVC.m; sourceTree = "<group>"; };
+		4D33EB081B342614005912CB /* ImageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageVC.h; sourceTree = "<group>"; };
+		4D33EB091B342614005912CB /* ImageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageVC.m; sourceTree = "<group>"; };
 		4D7FF4EA1B30855A000AF4F5 /* getPhotos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = getPhotos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7FF4ED1B30855A000AF4F5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4D7FF4EF1B30855A000AF4F5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -113,8 +122,21 @@
 			children = (
 				4D33EAFA1B32F10C005912CB /* SelectedImages.h */,
 				4D33EAFB1B32F10C005912CB /* SelectedImages.m */,
+				4D33EB021B341AEA005912CB /* SelectedImagesCell.h */,
+				4D33EB031B341AEA005912CB /* SelectedImagesCell.m */,
+				4D33EB051B341E68005912CB /* SelectedImagesCollectionVC.h */,
+				4D33EB061B341E68005912CB /* SelectedImagesCollectionVC.m */,
 			);
 			name = SelectedImages;
+			sourceTree = "<group>";
+		};
+		4D33EB0B1B343CB6005912CB /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				4D33EB081B342614005912CB /* ImageVC.h */,
+				4D33EB091B342614005912CB /* ImageVC.m */,
+			);
+			name = Image;
 			sourceTree = "<group>";
 		};
 		4D7FF4E11B30855A000AF4F5 = {
@@ -150,9 +172,10 @@
 		4D7FF4F31B30855A000AF4F5 /* getPhotos */ = {
 			isa = PBXGroup;
 			children = (
+				4D33EB0B1B343CB6005912CB /* Image */,
 				4D33EAF91B32F0D8005912CB /* SelectedImages */,
-				4D7FF5271B3085F1000AF4F5 /* Library */,
 				4D7FF5261B3085E1000AF4F5 /* Camera */,
+				4D7FF5271B3085F1000AF4F5 /* Library */,
 				4D7FF5251B3085D2000AF4F5 /* GetImage */,
 				4D7FF4FC1B30855A000AF4F5 /* AppDelegate.h */,
 				4D7FF4FD1B30855A000AF4F5 /* AppDelegate.m */,
@@ -337,8 +360,11 @@
 				4D7FF52B1B30862C000AF4F5 /* GetImageVC.m in Sources */,
 				4D33EAEF1B31DC3F005912CB /* LibraryCollectionViewCell.m in Sources */,
 				4D33EAF51B31E19D005912CB /* TWPhoto.m in Sources */,
+				4D33EB071B341E68005912CB /* SelectedImagesCollectionVC.m in Sources */,
 				4D7FF4FE1B30855A000AF4F5 /* AppDelegate.m in Sources */,
+				4D33EB041B341AEA005912CB /* SelectedImagesCell.m in Sources */,
 				4D33EAFC1B32F10C005912CB /* SelectedImages.m in Sources */,
+				4D33EB0A1B342614005912CB /* ImageVC.m in Sources */,
 				4DA422521B318D9400247DE0 /* LibraryCollectionVC.m in Sources */,
 				4D33EAF21B31DFDA005912CB /* TWPhotoLoader.m in Sources */,
 				4D7FF4FA1B30855A000AF4F5 /* main.m in Sources */,

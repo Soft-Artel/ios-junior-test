@@ -49,11 +49,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     TWPhoto *photo = [self.allPhotos objectAtIndex:indexPath.row];
-    SelectedImages *images = [SelectedImages sharedInstance];
-    [images.selectedImages addObject:photo.originalImage];
-    if ([images.selectedImages count] == 3) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"3 photo ready" object:nil];
-    }
+    [[SelectedImages sharedInstance] saveImage:photo.originalImage];
 }
 
 - (void)loadPhotos

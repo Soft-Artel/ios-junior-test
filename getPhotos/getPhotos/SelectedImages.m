@@ -14,18 +14,30 @@
 
 + (SelectedImages *)sharedInstance
 {
-    static SelectedImages *loader;
+    static SelectedImages *shared;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        loader = [[SelectedImages alloc] init];
+        shared = [[SelectedImages alloc] init];
     });
-    return loader;
+    return shared;
 }
 
 - (id)init
 {
-    self.selectedImages = [NSMutableArray new];
+    self = [super init];
+    if (self) {
+        self.selectedImages = [NSMutableArray new];
+    }
     return self;
+}
+
+- (void)saveImage:(UIImage *)image
+{
+    SelectedImages *images = [SelectedImages sharedInstance];
+    [images.selectedImages addObject:image];
+    if ([images.selectedImages count] == 4) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"4 photo ready" object:nil];
+    }
 }
 
 @end

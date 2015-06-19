@@ -110,20 +110,11 @@
         CGImageRef imageRef = CGImageCreateWithImageInRect([smallImage CGImage], cropRect);
         lastPhoto = [UIImage imageWithCGImage:imageRef];
         [self.captureImage setImage:lastPhoto];
-        [self saveImage];
+        UIImageWriteToSavedPhotosAlbum(lastPhoto, nil, nil, nil);
+        [[SelectedImages sharedInstance] saveImage:lastPhoto];
         CGImageRelease(imageRef);
         self.captureImage.hidden = NO;
         self.imagePreview.hidden = YES;
-    }
-}
-
-- (void)saveImage
-{
-    UIImageWriteToSavedPhotosAlbum(lastPhoto, nil, nil, nil);
-    SelectedImages *images = [SelectedImages sharedInstance];
-    [images.selectedImages addObject:lastPhoto];
-    if ([images.selectedImages count] == 3) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"3 photo ready" object:nil];
     }
 }
 

@@ -9,6 +9,7 @@
 #import "GetImageVC.h"
 #import "CameraVC.h"
 #import "LibraryCollectionVC.h"
+#import "SelectedImagesCollectionVC.h"
 
 @interface GetImageVC ()
 {
@@ -16,6 +17,7 @@
     LibraryCollectionVC *library;
     CGRect gestureViewFrame;
     CGRect libraryViewFrame;
+    SelectedImagesCollectionVC *selectedImagesCVC;
 }
 
 @property (strong, nonatomic) IBOutlet UIView *gestureView;
@@ -30,6 +32,16 @@
 {
     [super viewDidLoad];
     
+    self.editButtonItem.title = @"OK";
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self.navigationItem.rightBarButtonItem setAction:@selector(endButtonPressed)];
+    
+    selectedImagesCVC = [[SelectedImagesCollectionVC alloc] init];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(setImages)
+                                                 name:@"4 photo ready"
+                                               object:nil];
+    
     gestureViewFrame = self.gestureView.frame;
     libraryViewFrame = self.libraryView.frame;
     
@@ -40,11 +52,6 @@
     library = [[LibraryCollectionVC alloc] initWithNibName:@"LibraryCollectionVC" bundle:nil];
     [library changeFrame:libraryViewFrame];
     [libraryView addSubview:library.collectionView];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(return)
-                                                 name:@"3 photo ready"
-                                               object:nil];
     
     UIPanGestureRecognizer *swipeUp = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(slideUpWithGestureRecognizer:)];
     [self.gestureView addGestureRecognizer:swipeUp];
@@ -72,10 +79,14 @@
     [camera changeCamera];
 }
 
-- (void)return
+- (IBAction)watchSelectedImages:(id)sender
+{
+    [self.navigationController pushViewController:selectedImagesCVC animated:YES];
+}
+
+- (void)endButtonPressed
 {
     [self.navigationController popToRootViewControllerAnimated:YES];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"Return" object:nil];
 }
 
 - (void)slideUpWithGestureRecognizer:(UIPanGestureRecognizer *)gestureRecognizer
@@ -106,6 +117,11 @@
         gestureViewFrame = self.gestureView.frame;
         libraryViewFrame = self.libraryView.frame;
     }
+}
+
+- (void)setImages
+{
+    [self.navigationController pushViewController:selectedImagesCVC animated:YES];
 }
 
 @end
