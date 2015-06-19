@@ -12,4 +12,6 @@
 
 - (void)changeFrame:(CGRect)frame;
 
+- (void)loadPhotos;
+
 @end

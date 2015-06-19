@@ -11,17 +11,15 @@
 #import "SelectedImages.h"
 
 @interface CameraVC ()
+{
+    AVCaptureSession *session;
+    AVCaptureDeviceInput *input;
+    AVCaptureStillImageOutput *stillImageOutput;
+}
 
 @end
 
 @implementation CameraVC
-{
-    AVCaptureSession *session;
-    AVCaptureDevice *camera;
-    AVCaptureDeviceInput *input;
-    AVCaptureStillImageOutput *stillImageOutput;
-    UIImage *lastPhoto;
-}
 
 @synthesize captureImage, imagePreview;
 
@@ -46,7 +44,7 @@
     CGRect bounds = [self.imagePreview bounds];
     [captureVideoPreviewLayer setFrame:bounds];
     
-    camera = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    AVCaptureDevice *camera = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     input = [AVCaptureDeviceInput deviceInputWithDevice:camera error:nil];
     [session addInput:input];
     stillImageOutput = [AVCaptureStillImageOutput new];
@@ -108,20 +106,20 @@
         UIGraphicsEndImageContext();
         CGRect cropRect = CGRectMake(0, 0, image.size.width, image.size.width);
         CGImageRef imageRef = CGImageCreateWithImageInRect([smallImage CGImage], cropRect);
-        lastPhoto = [UIImage imageWithCGImage:imageRef];
+        UIImage *lastPhoto = [UIImage imageWithCGImage:imageRef];
         [self.captureImage setImage:lastPhoto];
+        CGImageRelease(imageRef);
         UIImageWriteToSavedPhotosAlbum(lastPhoto, nil, nil, nil);
         [[SelectedImages sharedInstance] saveImage:lastPhoto];
-        CGImageRelease(imageRef);
-        self.captureImage.hidden = NO;
-        self.imagePreview.hidden = YES;
+        captureImage.hidden = NO;
+        imagePreview.hidden = YES;
     }
 }
 
 - (void)newPhoto
 {
-    imagePreview.hidden = NO;
     captureImage.hidden = YES;
+    imagePreview.hidden = NO;
 }
 
 - (void)changeFrame:(CGRect)frame

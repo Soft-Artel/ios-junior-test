@@ -54,20 +54,22 @@
 
 - (void)loadPhotos
 {
-    [TWPhotoLoader loadAllPhotos:^(NSArray *photos, NSError *error) {
-        if (!error) {
-            self.allPhotos = [NSArray arrayWithArray:photos];
-            [self.collectionView reloadData];
-        } else {
-            NSLog(@"Load Photos Error: %@", error);
-        }
-    }];
+    [[TWPhotoLoader sharedLoader] startLoading];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(waitForData) name:@"Objects ready" object:nil];
 }
 
 - (void)changeFrame:(CGRect)frame
 {
     frame.origin = CGPointMake(0, 0);
     self.collectionView.frame = frame;
+}
+
+- (void)waitForData
+{
+    self.allPhotos = [TWPhotoLoader sharedLoader].allPhotos;
+    [self.collectionView reloadData];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"Objects ready" object:nil];
+    [TWPhotoLoader sharedLoader].allPhotos = [NSMutableArray new];
 }
 
 @end

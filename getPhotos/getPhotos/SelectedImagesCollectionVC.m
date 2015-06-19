@@ -11,7 +11,7 @@
 #import "SelectedImages.h"
 #import "ImageVC.h"
 
-@interface SelectedImagesCollectionVC () <UIGestureRecognizerDelegate>
+@interface SelectedImagesCollectionVC () 
 {
     NSMutableArray *images;
 }

@@ -1,9 +1,9 @@
 //
 //  TWPhoto.m
-//  Pods
+//  getPhotos
 //
-//  Created by Emar on 4/30/15.
-//
+//  Created by test on 16.06.15.
+//  Copyright (c) 2015 test. All rights reserved.
 //
 
 #import "TWPhoto.h"

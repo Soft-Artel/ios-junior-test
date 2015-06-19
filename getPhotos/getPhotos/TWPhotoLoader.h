@@ -1,9 +1,9 @@
 //
 //  TWImageLoader.h
-//  Pods
+//  getPhotos
 //
-//  Created by Emar on 4/30/15.
-//
+//  Created by test on 16.06.15.
+//  Copyright (c) 2015 test. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -11,6 +11,10 @@
 
 @interface TWPhotoLoader : NSObject
 
-+ (void)loadAllPhotos:(void (^)(NSArray *photos, NSError *error))completion;
+@property (strong, nonatomic) NSMutableArray *allPhotos;
+@property (strong, nonatomic) ALAssetsLibrary *assetsLibrary;
+
++ (TWPhotoLoader *)sharedLoader;
+- (void)startLoading;
 
 @end
