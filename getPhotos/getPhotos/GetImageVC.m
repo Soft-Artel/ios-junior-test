@@ -45,7 +45,7 @@
     gestureViewFrame = self.gestureView.frame;
     libraryViewFrame = self.libraryView.frame;
     
-#warning Тут это делать не правильно - при viewDidLoad фрейма еще нет - те он есть но не реальный а из ниба, если у тебя 6+ а ниб под 4ку - все попплывет
+#warning Тут это делать не правильно - при viewDidLoad фрейма еще нет
     
     camera = [[CameraVC alloc] initWithNibName:@"CameraVC" bundle:nil];
     [camera changeFrame:cameraView.frame];
@@ -55,19 +55,6 @@
     [library changeFrame:libraryViewFrame];
     [libraryView addSubview:library.collectionView];
     
-<<<<<<< HEAD
-=======
-    [[NSNotificationCenter defaultCenter] addObserver:self
-#warning Плохое название для метода return
-                                             selector:@selector(return)
-                                                 name:@"3 photo ready"
-                                               object:nil];
-    
-#warning не нашел где ты отписываешся от натификейшена, если этого кода нет то ты попадеш в ретейнцикл - и будет память утекать потому что на каждый вызов этого окна в [NSNotificationCenter defaultCenter] addObserver:self будет держать стронг ссылку на объет и не давать его почистить при [self.navigationController popToRootViewControllerAnimated:YES];
-
-    
-    
->>>>>>> origin/master
     UIPanGestureRecognizer *swipeUp = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(slideUpWithGestureRecognizer:)];
     [self.gestureView addGestureRecognizer:swipeUp];
 }

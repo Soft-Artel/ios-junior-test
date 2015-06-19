@@ -118,22 +118,6 @@
     }
 }
 
-<<<<<<< HEAD
-=======
-- (void)saveImage
-{
-    UIImageWriteToSavedPhotosAlbum(lastPhoto, nil, nil, nil);
-    
-    #warning метод копирует метод из галереи - его лучше перенести в модель
-    
-    SelectedImages *images = [SelectedImages sharedInstance];
-    [images.selectedImages addObject:lastPhoto];
-    if ([images.selectedImages count] == 3) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"3 photo ready" object:nil];
-    }
-}
-
->>>>>>> origin/master
 - (void)newPhoto
 {
     imagePreview.hidden = NO;
