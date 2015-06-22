@@ -9,6 +9,7 @@
 #import "GetImageVC.h"
 #import "CameraVC.h"
 #import "LibraryCollectionVC.h"
+#import "SelectedImages.h"
 #import "SelectedImagesCollectionVC.h"
 
 @interface GetImageVC ()
@@ -26,37 +27,43 @@
 
 @implementation GetImageVC
 
-@synthesize cameraView, libraryView, captureImageButton, changeCameraButton;
+@synthesize cameraView, libraryView, gestureView, captureImageButton, changeCameraButton;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     self.editButtonItem.title = @"OK";
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self.navigationItem.rightBarButtonItem setAction:@selector(endButtonPressed)];
     
     selectedImagesCVC = [[SelectedImagesCollectionVC alloc] init];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(setImages)
-                                                 name:@"4 photo ready"
-                                               object:nil];
-    
-    gestureViewFrame = self.gestureView.frame;
-    libraryViewFrame = self.libraryView.frame;
-    
-#warning Тут это делать не правильно - при viewDidLoad фрейма еще нет
     
     camera = [[CameraVC alloc] initWithNibName:@"CameraVC" bundle:nil];
     [camera changeFrame:cameraView.frame];
     [cameraView addSubview:camera.view];
     
     library = [[LibraryCollectionVC alloc] initWithNibName:@"LibraryCollectionVC" bundle:nil];
-    [library changeFrame:libraryViewFrame];
+    [library changeFrame:libraryView.frame];
     [libraryView addSubview:library.collectionView];
     
-    UIPanGestureRecognizer *swipeUp = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(slideUpWithGestureRecognizer:)];
-    [self.gestureView addGestureRecognizer:swipeUp];
+    UIPanGestureRecognizer *swipeChanging = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(slideUpWithGestureRecognizer:)];
+    [self.gestureView addGestureRecognizer:swipeChanging];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    gestureViewFrame = gestureView.frame;
+    libraryViewFrame = libraryView.frame;
+    [library changeFrame:libraryViewFrame];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setImages)
+        name:@"4 photo ready" object:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"4 photo ready" object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,18 +73,18 @@
 
 - (IBAction)captureImage:(id)sender
 {
-    captureImageButton.enabled = changeCameraButton.enabled = NO;
-    [camera snapImage];
-    
-#warning зачем такая реализация? 
-    
-    double delayInSeconds = 2.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [camera newPhoto];
-        [library loadPhotos];
-        captureImageButton.enabled = changeCameraButton.enabled = YES;
-    });
+    if ([SelectedImages sharedInstance].selectedImages.count <= 3) {
+        captureImageButton.enabled = changeCameraButton.enabled = NO;
+        [camera snapImage];
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [camera newPhoto];
+            [library loadPhotos];
+            captureImageButton.enabled = changeCameraButton.enabled = YES;
+        });
+    } else {
+        [[SelectedImages sharedInstance] showAlert];
+    }
 }
 
 - (IBAction)changeCamera:(id)sender
@@ -105,7 +112,7 @@
     } else if (newFrameGesture.origin.y > 500) {
         newFrameGesture.origin.y = 500;
     }
-    self.gestureView.frame = newFrameGesture;
+    gestureView.frame = newFrameGesture;
     
     CGRect newFrameLibrary = libraryViewFrame;
     newFrameLibrary.origin.y += translate.y;
@@ -117,11 +124,14 @@
         newFrameLibrary.origin.y = 520;
         newFrameLibrary.size.height = 0;
     }
-    self.libraryView.frame = newFrameLibrary;
+    libraryView.frame = newFrameLibrary;
+    if (libraryView.frame.size.height > 50) {
+        [library changeFrame:libraryView.frame];
+    }
     
     if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
-        gestureViewFrame = self.gestureView.frame;
-        libraryViewFrame = self.libraryView.frame;
+        gestureViewFrame = gestureView.frame;
+        libraryViewFrame = libraryView.frame;
     }
 }
 

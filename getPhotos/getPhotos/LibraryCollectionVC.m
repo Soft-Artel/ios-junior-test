@@ -13,6 +13,9 @@
 #import "SelectedImages.h"
 
 @interface LibraryCollectionVC ()
+{
+    UICollectionViewFlowLayout *layout;
+}
 
 @property (strong, nonatomic) NSArray *allPhotos;
 
@@ -23,12 +26,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self loadPhotos];
-    UICollectionViewFlowLayout *layout  = [[UICollectionViewFlowLayout alloc] init];
-    layout.itemSize                     = CGSizeMake(100, 100);
+    layout = [[UICollectionViewFlowLayout alloc] init];
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    self.collectionView.collectionViewLayout = layout;
-
+    [self loadPhotos];
     [self.collectionView registerClass:[LibraryCollectionViewCell class] forCellWithReuseIdentifier:@"TWPhotoCollectionViewCell"];
 }
 
@@ -49,7 +49,11 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     TWPhoto *photo = [self.allPhotos objectAtIndex:indexPath.row];
-    [[SelectedImages sharedInstance] saveImage:photo.originalImage];
+    if ([SelectedImages sharedInstance].selectedImages.count <= 3) {
+        [[SelectedImages sharedInstance] saveImage:photo.originalImage];
+    } else {
+        [[SelectedImages sharedInstance] showAlert];
+    }
 }
 
 - (void)loadPhotos
@@ -62,6 +66,9 @@
 {
     frame.origin = CGPointMake(0, 0);
     self.collectionView.frame = frame;
+    CGFloat imageSize = frame.size.height*0.8;
+    layout.itemSize = CGSizeMake(imageSize, imageSize);
+    self.collectionView.collectionViewLayout = layout;
 }
 
 - (void)waitForData

@@ -40,4 +40,13 @@
     }
 }
 
+- (void)showAlert
+{
+    UIAlertView* dialog = [[UIAlertView alloc] init];
+    [dialog setDelegate:self];
+    [dialog setTitle:@"You can add only 4 photos"];
+    [dialog addButtonWithTitle:@"OK"];
+    [dialog show];
+}
+
 @end

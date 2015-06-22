@@ -14,5 +14,6 @@
 
 + (SelectedImages *)sharedInstance;
 - (void)saveImage:(UIImage *)image;
+- (void)showAlert;
 
 @end
